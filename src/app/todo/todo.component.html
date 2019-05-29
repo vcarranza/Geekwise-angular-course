@@ -20,6 +20,7 @@
 
 <div class="trash">
   <h2>Trash</h2>
+  <button (click)="emptyTodoTrash()">Empty</button>
   <ng-container *ngFor="let todo of todos">
     <li *ngIf="todo.isDeleted">
       {{ todo.title }}
@@ -29,5 +30,6 @@
 
   </ng-container>
 </div>
+
     
   

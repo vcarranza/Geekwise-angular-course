@@ -2,3 +2,50 @@
     text-decoration: line-through;
     background-color: coral;
 }
+.todos {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.todos ul {
+    padding: 0 50px;
+}
+
+.todos ul li {
+    list-style-type: none;
+    padding: 20px 50px;
+    background-color: #ccc;
+    cursor: pointer;
+    transition: background-color 0.4s ease-out;
+    
+}
+
+.todos li span {
+    color: red;
+    margin-left: 10px;
+}
+
+.todos ul li:hover {
+    background-color: rgb(131, 131, 131);
+}
+
+.todos form input {
+    border: #000 1px solid;
+    padding: 10px;
+    border-radius: 20px;
+}
+
+.todos form button {
+    padding: 15px 30px;
+    background: rgb(67, 142, 192);
+    margin-left: 50px;
+    border-radius: 20px;
+    transition: background-color 0.4s ease-out;
+    cursor: pointer;
+}
+
+.todos form button:hover {
+    background: rgb(67, 90, 192);
+}

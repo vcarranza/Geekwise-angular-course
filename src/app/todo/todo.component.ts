@@ -15,7 +15,7 @@ export class TodoComponent implements OnInit {
 
   
 
-  todos: object[] = [
+  todos: TodoInterface[] = [
     { title: 'Clean my car', isCompleted: false, isDeleted: false},
     { title: 'Buy more shampoo', isCompleted: false, isDeleted: false},
     { title: 'Hit the gym', isCompleted: false, isDeleted: false},
@@ -31,6 +31,10 @@ export class TodoComponent implements OnInit {
       this.todos.push(this.newTodo);
       this.newTodo = new Todo ();
     }
+  }
+
+  emptyTodoTrash(): void {
+    this.todos = this.todos.filter(todo => !todo.isDeleted);
   }
 
   ngOnInit() {
