@@ -1,0 +1,14 @@
+.character .character{
+    display: inline-flex;
+    flex-direction:column-reverse;
+    width:33%;
+    padding:10px;
+}
+
+.character * {
+    text-align: center;
+}
+
+.character img{
+    width:33%;
+}

@@ -1,3 +1,11 @@
-<p>
-  characters works!
-</p>
+<div class="characters">
+  <h1>A List of characters.</h1>
+  <ng-container *ngFor="let character of characters">
+    <div class="character" [ngClass]="isHero(character) ? 'hero' : 'villain'">
+      <h4>{{ character.name }}</h4>
+      <img src="{{ character.image }}" alt="{{ character.name }}">
+      <p>{{ character.description }}</p>
+      <a routerLink="/character/{{ character.id }}">Learn More</a>
+    </div>
+  </ng-container>
+</div>

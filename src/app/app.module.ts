@@ -7,13 +7,15 @@ import { AppRoutingModule } from './app-routing.module';
 import { HomeComponent } from './home/home.component';
 import { TodoComponent } from './todo/todo.component';
 import { CharactersComponent } from './characters/characters.component';
+import { IndividualCharacterComponent } from './individual-character/individual-character.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     TodoComponent,
-    CharactersComponent
+    CharactersComponent,
+    IndividualCharacterComponent
   ],
   imports: [
     BrowserModule,
