@@ -1,6 +1,5 @@
 .completed{
     text-decoration: line-through;
-    background-color: coral;
 }
 .todos {
     display: flex;
@@ -9,11 +8,11 @@
     justify-content: center;
 }
 
-.todos ul {
+.todos > ul {
     padding: 0 50px;
 }
 
-.todos ul li {
+.todos > ul > li {
     list-style-type: none;
     padding: 20px 50px;
     background-color: #ccc;
@@ -22,22 +21,22 @@
     
 }
 
-.todos li span {
+.todos > li > span {
     color: red;
     margin-left: 10px;
 }
 
-.todos ul li:hover {
+.todos > ul > li:hover {
     background-color: rgb(131, 131, 131);
 }
 
-.todos form input {
+.todos > form > input {
     border: #000 1px solid;
     padding: 10px;
     border-radius: 20px;
 }
 
-.todos form button {
+.todos > form > button {
     padding: 15px 30px;
     background: rgb(67, 142, 192);
     margin-left: 50px;
@@ -46,6 +45,8 @@
     cursor: pointer;
 }
 
-.todos form button:hover {
+.todos > form > button:hover {
     background: rgb(67, 90, 192);
 }
+
+
