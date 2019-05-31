@@ -1,14 +1,14 @@
-.character .character{
+.characters .character {
     display: inline-flex;
-    flex-direction:column-reverse;
-    width:33%;
-    padding:10px;
+    flex-direction: column;
+    width: 30%;
+    padding: 20px;
 }
 
 .character * {
     text-align: center;
 }
 
-.character img{
-    width:33%;
+.character img {
+    width: 100%;
 }

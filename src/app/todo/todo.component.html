@@ -1,7 +1,6 @@
-<h1 class="header">Things Todo</h1>
-<h2>{{ newTodo.title }}</h2>
 <div class="todo">
-  <ul>
+ <h1 class="header">Things Todo</h1> 
+ <ul>
     <ng-container *ngFor="let todo of todos">
         <li *ngIf="!todo.isDeleted"
           [ngClass]="{ 'completed': todo.isCompleted }"
