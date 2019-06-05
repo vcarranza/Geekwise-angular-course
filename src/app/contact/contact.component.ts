@@ -16,10 +16,16 @@ export class ContactComponent implements OnInit, OnDestroy {
 
   contacts: ContactInterface[];
 
+  newContact: ContactInterface = this.contactService.newContact;
+
   setContacts(): Subscription {
      return this.contactService.getContacts()
       .subscribe(contacts => this.contacts = contacts);
   } 
+
+  addContact():void {
+    this.contacts.push(this.contactService.addNewContact());
+  }
 
   ngOnInit() {
     this.setContacts();

@@ -12,7 +12,15 @@ export class ContactService {
 
   constructor() { }
 
+  newContact: ContactInterface = new Contact();
+
   getContacts (): Observable<ContactInterface[]>{
     return of(CONTACTS);
+  }
+
+  addNewContact(): ContactInterface {
+    const contactToAdd = this.newContact;
+    this.newContact = new Contact();
+    return contactToAdd;
   }
 }

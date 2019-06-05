@@ -1,9 +1,29 @@
-<p *ngFor="let contact of contacts">{{ contact.name }}</p>
+<div class="contacts">
+  <table>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Phone</th>
+      <th>Email</th>
+      <th>Relation</th>
+    </tr>
+    <tr *ngFor="let contact of contacts">
+      <td>{{ contact.id }}</td>
+      <td>{{ contact.name }}</td>
+      <td><phone [phone]="contact.phone"></phone></td>
+      <td><email [email]="contact.email"></email></td> 
+      <td>{{ contact.relation }}</td>
+    </tr>
+  </table>
+
+  <form (ngSubmit)="addContact()">
+    <input type="text" name="name" [(ngModel)]="newContact.name">
+    <input type="text" name="phone" [(ngModel)]="newContact.phone">
+    <input type="text" name="email" [(ngModel)]="newContact.email">
+    <input type="text" name="relation" [(ngModel)]="newContact.relation">
+    <button>Add</button>
+  </form>
+</div>
 
 
 
-
-<!-- <div class="contact">
-  <h1>List of contacts</h1>
-  <ng-container></ng-container>
-</div> -->
