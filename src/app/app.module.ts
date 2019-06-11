@@ -14,6 +14,7 @@ import { EmailComponent } from './components/email.component';
 import { PhoneComponent } from './components/phone.component';
 import { PhonePipe } from './pipes/phone.pipe';
 import { AmiibosComponent } from './amiibos/amiibos.component';
+import { IndividualAmiiboComponent } from './individual-amiibo/individual-amiibo.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { AmiibosComponent } from './amiibos/amiibos.component';
     EmailComponent,
     PhoneComponent,
     PhonePipe,
-    AmiibosComponent
+    AmiibosComponent,
+    IndividualAmiiboComponent
   ],
   imports: [
     BrowserModule,
