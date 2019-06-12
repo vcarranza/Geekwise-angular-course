@@ -10,16 +10,15 @@ export class PaginationService {
 
 
   getPaginator(allItems: number, currentPage: number): object {
-    const itemsOnPage = 12;
+    const itemsOnPage = 27;
     const pagesCount: number = Math.ceil(allItems/ itemsOnPage);
     let firstPage: number, lastPage: number;
     
 
-    if(pagesCount <= itemsOnPage){
+    if(pagesCount <= itemsOnPage) {
       firstPage = 1;
       lastPage = pagesCount;
-    } else {
-      if(currentPage <= 3) {
+    } else {if(currentPage <= 3) {
         firstPage = 1;
         lastPage = 5;
       } else if (currentPage + 1 >= pagesCount) {
@@ -27,7 +26,7 @@ export class PaginationService {
         lastPage = pagesCount;
       } else {
         firstPage = currentPage - 2;
-        lastPage = currentPage +2;
+        lastPage = currentPage + 2;
       }
     }
 

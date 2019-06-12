@@ -26,12 +26,10 @@ export class AmiibosComponent implements OnInit {
   }
 
   setPage(page: number): void {
-   
     const amiibos = this.amiiboService.getAmiibos();
     this.paginator = this.paginationService.getPaginator(amiibos.length, page);
     
     if(page < 1 || page > this.paginator.pagesCount) return;
-
     this.amiibos = amiibos.slice(this.paginator.startIndex, this.paginator.endIndex + 1);
   }
 
