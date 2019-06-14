@@ -1,8 +1,14 @@
+<div>
+  <h3>Search</h3>
+  <input type="text" [(ngModel)]="searchText">
+</div>
+
+
 <div class="amiibos">
   <div *ngFor="let amiibo of amiibos">
     <h3>{{ amiibos.name }}</h3>
     <img src="{{ amiibo.image }}" alt="{{ amiibo.name }}">
-    <a routerLink="/amiibo/{{ getAmiiboLink(amiibo.head, amiibo.tail) }}">View</a>
+    <a routerLink="{{ getAmiiboLink(amiibo.head, amiibo.tail) }}">View</a>
   </div>
 
 </div>

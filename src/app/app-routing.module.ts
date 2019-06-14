@@ -17,7 +17,7 @@ const routes: Routes = [
   { path: 'character/:id', component: IndividualCharacterComponent},
   { path: 'contacts', component: ContactComponent},
   { path: 'amiibos', component: AmiibosComponent },
-  { path: 'individual-amiibos', component: IndividualAmiiboComponent}
+  { path: 'amiibo/:id', component: IndividualAmiiboComponent}
 ];
 
 @NgModule({
