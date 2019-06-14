@@ -18,6 +18,7 @@ export class AmiibosComponent implements OnInit {
 
   amiibos: AmiiboInterface[];
   paginator: any;
+  isFiltered: boolean = false;
 
 
   getAmiiboLink(head:string, tail:string): string {
@@ -31,6 +32,15 @@ export class AmiibosComponent implements OnInit {
     
     if(page < 1 || page > this.paginator.pagesCount) return;
     this.amiibos = amiibos.slice(this.paginator.startIndex, this.paginator.endIndex + 1);
+  }
+
+  setAmiibos(searchText: string): void {
+    if (searchText) {
+      this.amiibos = this.amiiboService.getAmiibos();
+    } else {
+      this.isFiltered = false;
+      this.setPage(1);
+    }
   }
 
   ngOnInit() {

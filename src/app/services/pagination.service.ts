@@ -15,19 +15,15 @@ export class PaginationService {
     let firstPage: number, lastPage: number;
     
 
-    if(pagesCount <= itemsOnPage) {
+    if(currentPage <= 3) {
       firstPage = 1;
+      lastPage = 5;
+    } else if (currentPage + 1 >= pagesCount) {
+      firstPage = pagesCount - 4;
       lastPage = pagesCount;
-    } else {if(currentPage <= 3) {
-        firstPage = 1;
-        lastPage = 5;
-      } else if (currentPage + 1 >= pagesCount) {
-        firstPage = pagesCount - 4;
-        lastPage = pagesCount;
-      } else {
-        firstPage = currentPage - 2;
-        lastPage = currentPage + 2;
-      }
+    } else {
+      firstPage = currentPage - 2;
+      lastPage = currentPage + 2;
     }
 
     const startIndex = (currentPage - 1) * itemsOnPage;
