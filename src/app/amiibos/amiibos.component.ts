@@ -5,6 +5,7 @@ import { AmiibosService } from '../services/amiibo.service';
 import { AmiiboInterface } from '../interfaces/amiiboInterface';
 import { Subscription } from 'rxjs';
 import { PaginationService } from '../services/pagination.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-amiibos',
@@ -13,12 +14,18 @@ import { PaginationService } from '../services/pagination.service';
 })
 export class AmiibosComponent implements OnInit {
 
-  constructor(private amiiboService: AmiibosService, private paginationService: PaginationService) {}
+  constructor(
+    private amiiboService: AmiibosService, 
+    private paginationService: PaginationService,
+    private route: ActivatedRoute
+    
+    ) {}
 
 
   amiibos: AmiiboInterface[];
   paginator: any;
   isFiltered: boolean = false;
+  currentPage: number = 1;
 
 
   getAmiiboLink(head:string, tail:string): string {
@@ -27,10 +34,12 @@ export class AmiibosComponent implements OnInit {
   }
 
   setPage(page: number): void {
+    this.currentPage = page;
     const amiibos = this.amiiboService.getAmiibos();
     this.paginator = this.paginationService.getPaginator(amiibos.length, page);
     
     if(page < 1 || page > this.paginator.pagesCount) return;
+
     this.amiibos = amiibos.slice(this.paginator.startIndex, this.paginator.endIndex + 1);
   }
 
@@ -39,12 +48,24 @@ export class AmiibosComponent implements OnInit {
       this.amiibos = this.amiiboService.getAmiibos();
     } else {
       this.isFiltered = false;
-      this.setPage(1);
+      this.setPage(this.currentPage);
     }
+  }
+
+
+  filterAmiibos(): void {
+    const type = this.route.snapshot.queryParamMap.get('type');
+    const amiiboSeries = this.route.snapshot.queryParamMap.get('amiiboSeries');
+    const gameSeries = this.route.snapshot.queryParamMap.get('gameSeries');
+
+    const filter = {type} || {amiiboSeries} || {gameSeries};
+
+    this.amiiboService.getFilteredAmiibos(filter).subscribe((response: any) => console.log(response));
   }
 
   ngOnInit() {
     this.setPage(1);
+    this.filterAmiibos();
   }
 
 }

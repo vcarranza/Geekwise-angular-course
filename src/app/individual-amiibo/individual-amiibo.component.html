@@ -3,6 +3,7 @@
     <h1>{{ amiibo?.name }}</h1>
     <p>Amiibo Series: <a routerLink="/Amiibo">{{ amiibo?.amiiboSeries }}</a></p>
     <p>Game Series: <a routerLink="">{{ amiibo?.gameSeries }}</a></p>
+    <p>Type: <a routerLink="/amiibos?"[queryParams]="{type: amiibo?.type }">{{ amiibo?.type }}</a></p>
     <div>
         <h4>Released</h4>
         <p> AU: {{ amiibo?.release.au }}</p>
