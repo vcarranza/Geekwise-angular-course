@@ -4,7 +4,8 @@
     <ng-container *ngFor="let todo of todos">
         <li *ngIf="!todo.isDeleted"
           [ngClass]="{ 'completed': todo.isCompleted }"
-          (click)="toggleCompleted(todo)">{{ todo.title }}
+          (click)="toggleCompleted(todo)">
+          {{ todo.title }}
           <span (click)="toggleDeleted(todo)">Delete</span>
         </li>
     </ng-container>
@@ -20,14 +21,14 @@
 <div class="trash">
   <h2>Trash</h2>
   <button (click)="emptyTodoTrash()">Empty</button>
+  <ul>
   <ng-container *ngFor="let todo of todos">
     <li *ngIf="todo.isDeleted">
       {{ todo.title }}
       <span (click)="toggleDeleted(todo)">Restore</span>
-
-    </li>
-
-  </ng-container>
+      </li>
+    </ng-container>
+  </ul>
 </div>
 
     
